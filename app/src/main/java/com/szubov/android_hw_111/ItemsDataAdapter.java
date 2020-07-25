@@ -17,14 +17,6 @@ public class ItemsDataAdapter extends BaseAdapter {
     private List<ItemData> items;
     private LayoutInflater inflater;
 
-    private CompoundButton.OnCheckedChangeListener myCheckChangeList = new
-            CompoundButton.OnCheckedChangeListener() {
-        @Override
-        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-            items.get((Integer) buttonView.getTag()).setChecked(isChecked);
-        }
-    };
-
     ItemsDataAdapter(Context context, List<ItemData> items) {
         if (items == null) {
             this.items = new ArrayList<>();
@@ -80,7 +72,13 @@ public class ItemsDataAdapter extends BaseAdapter {
         image.setImageDrawable(itemData.getImage());
         title.setText(itemData.getTitle());
         subtitle.setText(itemData.getSubtitle());
-        checkBox.setOnCheckedChangeListener(myCheckChangeList);
+
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                items.get((Integer) buttonView.getTag()).setChecked(isChecked);
+            }
+        });
         checkBox.setTag(position);
         checkBox.setChecked(itemData.isChecked());
 

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Android-HW-11.1</string>
+    <string name="main_activity_name">Custom elements</string>
 </resources>

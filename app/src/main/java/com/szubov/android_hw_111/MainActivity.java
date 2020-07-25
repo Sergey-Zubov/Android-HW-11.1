@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void generateRandomData() {
         mAdapter.addItem(new ItemData(mImages.get(mRandom.nextInt(mImages.size())),
-                "Hello" + mAdapter.getCount(),"It\\'s me", mRandom.nextBoolean()));
+                "Hello" + mAdapter.getCount(),"It\'s me", mRandom.nextBoolean()));
     }
 
     private void showItemData(int position) {
